@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Cards</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#9aa6b2;
+      --accent:#60a5fa;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    /* Page */
+    body{
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(180deg,#071027 0%, #081226 100%);
+      color:#e6eef6;
+      padding:40px 20px;
+      box-sizing:border-box;
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+    h1{
+      margin:0 0 18px 0;
+      font-size:28px;
+      letter-spacing:-0.02em;
+    }
+    p.lead{
+      margin:0 0 28px 0;
+      color:var(--muted);
+    }
+
+    /* Grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+      gap:18px;
+    }
+
+    /* Card */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow: 0 6px 18px rgba(3,6,12,0.6);
+      transition: transform .18s ease, box-shadow .18s ease;
+      display:flex;
+      flex-direction:column;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(2,8,20,0.6);
+    }
+
+    .card .thumb{
+      width:100%;
+      aspect-ratio: 16/9;
+      object-fit:cover;
+      display:block;
+      background:linear-gradient(90deg, #0b2333, #103049);
+    }
+    .card .content{
+      padding:14px 14px 16px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+    }
+    .card .title{
+      font-size:16px;
+      font-weight:600;
+      margin:0;
+    }
+    .card .meta{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
+    }
+    .card .desc{
+      font-size:14px;
+      color: #cfe6ff;
+      margin:0;
+      line-height:1.45;
+      flex:1;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:6px;
+    }
+    .tag{
+      font-size:12px;
+      padding:6px 8px;
+      background:var(--glass);
+      border-radius:999px;
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .actions{
+      display:flex;
+      gap:8px;
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.04);
+      background:transparent;
+      color:var(--accent);
+      transition: background .12s ease, transform .12s ease;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn.secondary{
+      color:var(--muted);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    /* small screens */
+    @media (max-width:420px){
+      body{ padding:24px 12px; }
+      h1{ font-size:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Projects</h1>
+    <p class="lead">A few highlights — click Demo or Repo to explore each project.</p>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card" aria-labelledby="p1-title">
+        <img src="https://images.unsplash.com/photo-1526378726508-2d7204f1b76d?w=1200&q=60&auto=format&fit=crop" alt="Screenshot of Project One" class="thumb" loading="lazy">
+        <div class="content">
+          <h3 id="p1-title" class="title">Project One</h3>
+          <p class="meta">A short, one-line summary — React · Netlify</p>
+          <p class="desc">Responsive web app that helps users track tasks and deadlines with a minimal UI and offline caching.</p>
+          <div class="tags" aria-hidden="true">
+            <span class="tag">React</span>
+            <span class="tag">IndexedDB</span>
+            <span class="tag">PWA</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card" aria-labelledby="p2-title">
+        <img src="https://images.unsplash.com/photo-1526378726508-2d7204f1b76d?w=1200&q=60&auto=format&fit=crop" alt="Screenshot of Project Two" class="thumb" loading="lazy">
+        <div class="content">
+          <h3 id="p2-title" class="title">Project Two</h3>
+          <p class="meta">Data visualization · D3.js</p>
+          <p class="desc">Interactive charts and dashboards for exploring time-series data with smooth transitions and tooltips.</p>
+          <div class="tags" aria-hidden="true">
+            <span class="tag">D3</span>
+            <span class="tag">SVG</span>
+            <span class="tag">Accessibility</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card" aria-labelledby="p3-title">
+        <img src="https://images.unsplash.com/photo-1526378726508-2d7204f1b76d?w=1200&q=60&auto=format&fit=crop" alt="Screenshot of Project Three" class="thumb" loading="lazy">
+        <div class="content">
+          <h3 id="p3-title" class="title">Project Three</h3>
+          <p class="meta">API · Node.js · PostgreSQL</p>
+          <p class="desc">A lightweight REST API for user authentication, roles and file uploads — designed for quick integration.</p>
+          <div class="tags" aria-hidden="true">
+            <span class="tag">Node</span>
+            <span class="tag">Postgres</span>
+            <span class="tag">JWT</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank" rel="noopener">Demo</a>
+            <a class="btn secondary" href="#" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add more cards by copying an article.card block -->
+    </div>
+  </div>
+</body>
+</html>
