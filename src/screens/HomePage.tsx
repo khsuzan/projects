@@ -257,12 +257,10 @@ const HomePage = () => {
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
 						<div className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100">
 							<div className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-								14
+								{`${projects.length}+`}
 							</div>
-							<p className="text-gray-700 font-semibold">Applications</p>
-							<p className="text-gray-500 text-sm mt-1">
-								Crafted with precision
-							</p>
+							<p className="text-gray-700 font-semibold">Projects</p>
+							<p className="text-gray-500 text-sm mt-1">In Last Year</p>
 						</div>
 						<div className="p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-100">
 							<div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
