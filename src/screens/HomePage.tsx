@@ -69,17 +69,6 @@ const HomePage = () => {
 			features: ["AI Tutoring", "Adaptive Learning", "Progress Tracking"],
 		},
 		{
-			id: 7,
-			name: "BettixAi",
-			tagline: "AI Sports Prediction App",
-			description:
-				"Advanced sports winning prediction using machine learning. Get accurate predictions, live analytics, and personalized betting recommendations.",
-			path: "/bettix-ai",
-			gradient: "from-orange-500 to-red-500",
-			icon: "🎯",
-			features: ["ML Predictions", "Live Analytics", "Smart Picks"],
-		},
-		{
 			id: 8,
 			name: "Tether",
 			tagline: "Voice Cloning Technology",
