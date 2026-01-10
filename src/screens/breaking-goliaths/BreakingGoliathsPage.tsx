@@ -113,19 +113,6 @@ const BreakingGoliathsPage = () => {
 					</button>
 				</div>
 			</div>
-
-			{/* Navigation to Next Project */}
-			<div className="py-16 border-t border-gray-200 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-6 text-center">
-					<p className="text-gray-600 mb-4">Continue Exploring</p>
-					<a
-						href="/plate-prep"
-						className="inline-block px-8 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105"
-					>
-						Next Project: Plate Prep →
-					</a>
-				</div>
-			</div>
 		</div>
 	);
 };

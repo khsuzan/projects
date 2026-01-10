@@ -145,19 +145,6 @@ const SportXPage = () => {
 					</div>
 				))}
 			</div>
-
-			{/* Navigation to Next Project */}
-			<div className="py-16 border-t border-gray-200/10 bg-[#111111]">
-				<div className="max-w-7xl mx-auto px-6 text-center">
-					<p className="text-gray-600 mb-4">Continue Exploring</p>
-					<a
-						href="/hisabot"
-						className="inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
-					>
-						Next Project: Hisabot →
-					</a>
-				</div>
-			</div>
 		</div>
 	);
 };

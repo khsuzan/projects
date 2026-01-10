@@ -113,19 +113,6 @@ const MathaidetectivesPage = () => {
 					</button>
 				</div>
 			</div>
-
-			{/* Navigation to Next Project */}
-			<div className="py-16 border-t border-gray-200 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-6 text-center">
-					<p className="text-gray-600 mb-4">Continue Exploring</p>
-					<a
-						href="/tether"
-						className="inline-block px-8 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold rounded-lg hover:from-indigo-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105"
-					>
-						Next Project: Tether →
-					</a>
-				</div>
-			</div>
 		</div>
 	);
 };

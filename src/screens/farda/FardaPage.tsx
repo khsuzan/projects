@@ -109,17 +109,6 @@ const FardaPage = () => {
 					</button>
 				</div>
 			</div>
-			<div className="py-16 border-t border-gray-200 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-6 text-center">
-					<p className="text-gray-600 mb-4">Continue Exploring</p>
-					<a
-						href="/breaking-goliaths"
-						className="inline-block px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105"
-					>
-						Next Project: Breaking Goliaths →
-					</a>
-				</div>
-			</div>
 		</div>
 	);
 };

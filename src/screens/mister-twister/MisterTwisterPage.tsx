@@ -162,19 +162,6 @@ const MisterTwisterPage = () => {
 					</button>
 				</div>
 			</div>
-
-			{/* Navigation to Next Project */}
-			<div className="py-16 border-t border-gray-200 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-6 text-center">
-					<p className="text-gray-600 mb-4">View All Projects</p>
-                    <a
-                        href="/"
-                        className="inline-block px-8 py-3 bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold rounded-lg hover:from-sky-700 hover:to-cyan-700 transition-all duration-300 transform hover:scale-105"
-                    >
-                        ← Back to Home 
-                    </a>
-				</div>
-			</div>
 		</div>
 	);
 };
