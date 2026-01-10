@@ -69,7 +69,7 @@ const HomePage = () => {
 			features: ["AI Tutoring", "Adaptive Learning", "Progress Tracking"],
 		},
 		{
-			id: 8,
+			id: 7,
 			name: "Tether",
 			tagline: "Voice Cloning Technology",
 			description:
@@ -80,7 +80,7 @@ const HomePage = () => {
 			features: ["Voice Cloning", "Multi-Language", "Easy Integration"],
 		},
 		{
-			id: 9,
+			id: 8,
 			name: "Farda",
 			tagline: "IoT Pill Tracking App",
 			description:
@@ -91,7 +91,7 @@ const HomePage = () => {
 			features: ["IoT Tracking", "Remote Monitoring", "Health Reports"],
 		},
 		{
-			id: 10,
+			id: 9,
 			name: "Breaking Goliaths",
 			tagline: "AI Faith & Belief Strengthening",
 			description:
@@ -102,7 +102,7 @@ const HomePage = () => {
 			features: ["AI Motivation", "Faith Guidance", "Community"],
 		},
 		{
-			id: 11,
+			id: 10,
 			name: "Plate Prep",
 			tagline: "AI Recipe & Community Platform",
 			description:
@@ -113,7 +113,7 @@ const HomePage = () => {
 			features: ["AI Recipes", "Community", "Meal Planning"],
 		},
 		{
-			id: 12,
+			id: 11,
 			name: "CoachCal",
 			tagline: "AI Fitness Coach App",
 			description:
@@ -124,7 +124,7 @@ const HomePage = () => {
 			features: ["AI Coach", "Smart Tracking", "Nutrition Plans"],
 		},
 		{
-			id: 13,
+			id: 12,
 			name: "Rydr",
 			tagline: "Route Sharing & Rider Communities",
 			description:
@@ -135,7 +135,7 @@ const HomePage = () => {
 			features: ["Route Sharing", "Communities", "Cost Sharing"],
 		},
 		{
-			id: 14,
+			id: 13,
 			name: "Mister Twister",
 			tagline: "Ice Cream Truck Management",
 			description:
