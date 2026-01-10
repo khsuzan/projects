@@ -1,6 +1,26 @@
 import { Link } from "react-router";
 
 const HomePage = () => {
+	// Gradient color map for each project
+	const getGradientColor = (gradient: string): string => {
+		const colorMap: Record<string, string> = {
+			"from-blue-500 to-cyan-500": "#06b6d4",
+			"from-purple-500 to-pink-500": "#ec4899",
+			"from-emerald-500 to-teal-500": "#14b8a6",
+			"from-pink-500 to-rose-500": "#f43f5e",
+			"from-cyan-500 to-blue-500": "#3b82f6",
+			"from-indigo-500 to-blue-500": "#3b82f6",
+			"from-violet-500 to-purple-500": "#a855f7",
+			"from-green-500 to-emerald-500": "#10b981",
+			"from-amber-500 to-orange-500": "#f97316",
+			"from-red-500 to-yellow-500": "#ef4444",
+			"from-blue-500 to-purple-500": "#8b5cf6",
+			"from-green-500 to-teal-500": "#14b8a6",
+			"from-sky-500 to-cyan-500": "#06b6d4",
+		};
+		return colorMap[gradient] || "#3b82f6";
+	};
+
 	const projects = [
 		{
 			id: 1,
@@ -180,7 +200,14 @@ const HomePage = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 					{projects.map((project) => (
 						<Link key={project.id} to={project.path} className="group h-full">
-							<div className="h-full flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100 hover:border-gray-200 bg-gradient-to-b from-white to-gray-50">
+							<div
+								className="animated-border-card h-full flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100 hover:border-gray-200 bg-gradient-to-b from-white to-gray-50"
+								style={
+									{
+										"--gradient-color": getGradientColor(project.gradient),
+									} as React.CSSProperties & { "--gradient-color": string }
+								}
+							>
 								{/* Card Header with Icon */}
 								<div className="h-28 flex items-center justify-center pt-6">
 									<div className="text-7xl">{project.icon}</div>
@@ -238,13 +265,6 @@ const HomePage = () => {
 										</svg>
 									</button>
 								</div>
-								{/* Top Border Accent */}
-								<div
-									style={{
-										background: `linear-gradient(to right, var(--tw-gradient-stops))`,
-									}}
-									className={`h-1 w-full bg-gradient-to-r ${project.gradient}`}
-								></div>
 							</div>
 						</Link>
 					))}

@@ -50,7 +50,6 @@ const FardaPage = () => {
 					</div>
 				</div>
 			</div>
-
 			{/* Key Highlights */}
 			<div className="max-w-7xl mx-auto px-4 py-16">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -93,7 +92,6 @@ const FardaPage = () => {
 					))}
 				</div>
 			</div>
-
 			{/* CTA Section */}
 			<div className="py-24 text-center border-t border-gray-200">
 				<div className="max-w-3xl mx-auto px-4">
@@ -109,6 +107,17 @@ const FardaPage = () => {
 					>
 						Get Started Today
 					</button>
+				</div>
+			</div>
+			<div className="py-16 border-t border-gray-200 bg-gray-50">
+				<div className="max-w-7xl mx-auto px-6 text-center">
+					<p className="text-gray-600 mb-4">Continue Exploring</p>
+					<a
+						href="/breaking-goliaths"
+						className="inline-block px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105"
+					>
+						Next Project: Breaking Goliaths →
+					</a>
 				</div>
 			</div>
 		</div>

@@ -111,8 +111,20 @@ const TetherPage = () => {
 					</button>
 				</div>
 			</div>
+
+			{/* Navigation to Next Project */}
+			<div className="py-16 border-t border-gray-200 bg-gray-50">
+				<div className="max-w-7xl mx-auto px-6 text-center">
+					<p className="text-gray-600 mb-4">Continue Exploring</p>
+					<a
+						href="/farda"
+						className="inline-block px-8 py-3 bg-gradient-to-r from-violet-600 to-purple-600 text-white font-semibold rounded-lg hover:from-violet-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+					>
+						Next Project: Farda →
+					</a>
+				</div>
+			</div>
 		</div>
 	);
 };
-
 export default TetherPage;
