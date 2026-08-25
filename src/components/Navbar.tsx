@@ -2,11 +2,21 @@ import React from "react";
 import { Link } from "react-router";
 
 export const Navbar: React.FC = () => {
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo: KS */}
-        <Link to="/" className="flex items-center group" title="Kawsar Hossain Suzan">
+        {/* Brand Logo: KS (Scroll to top) */}
+        <Link
+          to="/"
+          onClick={handleScrollToTop}
+          className="flex items-center group cursor-pointer"
+          title="Scroll to Top"
+        >
           <div className="w-9 h-9 rounded-xl bg-slate-900 text-white flex items-center justify-center font-extrabold tracking-wider shadow-xs group-hover:bg-indigo-600 transition-colors text-sm">
             KS
           </div>
