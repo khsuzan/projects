@@ -1,0 +1,330 @@
+[
+  {
+    "id": "monuaf-mobile",
+    "name": "Monuaf E-Commerce Mobile App",
+    "tagline": "Cross-Platform Retail Shopping App (Grafton Flowers & Crunchy Qatar)",
+    "description": "Production mobile application built with Flutter & Dart, powering customer shopping experiences for Grafton Flowers Qatar and Crunchy Cookies Qatar. Features dynamic inventory synchronization, real-time order status tracking, and offline-first cart state management.",
+    "category": "mobile",
+    "isFeatured": true,
+    "techStack": ["Flutter", "Dart", "BLoC Pattern", "Clean Architecture", "Dio / Retrofit"],
+    "challenges": [
+      "Dynamic BOM Inventory Sync: Synchronized mobile store catalog with the dynamic raw ingredient stock pool, immediately disabling unfulfillable items upon ingredient depletion.",
+      "Event-Driven Telemetry Updates: Integrated WebSockets to push instant sub-second order status updates to customer mobile screens.",
+      "Network Fault Resilience: Built offline cart mutation queuing and idempotent order verification to handle intermittent mobile network connectivity."
+    ],
+    "architectureHighlights": [
+      "BLoC clean layered architecture separating UI, domain logic, and data repositories.",
+      "Offline-first cart persistence using Hive/SQLite local encrypted storage.",
+      "Sub-second multi-store inventory synchronization across iOS and Android."
+    ],
+    "metrics": "Cross-platform Flutter mobile shopping experience",
+    "appStoreUrl": "https://apps.apple.com/us/app/grafton-flowers/id6762498743"
+  },
+  {
+    "id": "flora-pos-web",
+    "name": "Flora POS & Multi-Tenant E-Commerce Platform",
+    "tagline": "Enterprise Web Storefronts & Role-Based POS Dashboard",
+    "description": "Flora is a premium, enterprise-grade E-Commerce and POS ecosystem designed specifically for high-volume floral and gift businesses. Features bilingual (English/Arabic) customer-facing web storefronts, role-based Admin POS & Order Prep Dashboards, and a highly scalable Django REST / ASGI backend. Multi-tenant monorepo architecture powers distinct brands (Grafton Flowers & Crunchy Qatar) from a single shared infrastructure.",
+    "category": "fullstack",
+    "isFeatured": true,
+    "techStack": ["Next.js (App Router)", "React 19", "TypeScript", "Python", "Django REST", "Django Channels", "Redis", "PostgreSQL", "Celery", "Docker", "WeasyPrint"],
+    "techLayers": [
+      { "layer": "Backend & ASGI", "techs": "Python 3.10+, Django 5.2+, Django REST Framework (DRF), Daphne" },
+      { "layer": "Real-time & Caching", "techs": "Django Channels (WebSockets), Redis" },
+      { "layer": "Databases & Tasks", "techs": "PostgreSQL, Celery" },
+      { "layer": "Admin Dashboard", "techs": "React 19, TypeScript, Vite, Redux Toolkit, RTK Query, Tailwind CSS, Radix UI" },
+      { "layer": "Consumer Storefronts", "techs": "Next.js (App Router), React, TypeScript, Tailwind CSS, PNPM Monorepo" },
+      { "layer": "DevOps & Utilities", "techs": "Docker, Nginx, WeasyPrint (PDF rendering), UV Package Manager" }
+    ],
+    "challenges": [
+      "Complex Relational Recipe & Ingredient Modeling: Designed an inventory tracking system that calculates bouquet-level ingredient recipes (e.g. number of roses, ribbons, vases per arrangement) and dynamically decrements ingredient stock upon order creation to eliminate overselling.",
+      "Real-Time Cross-Role Synchronicity: Integrated Django Channels WebSockets and RTK Query cache invalidation so order updates from Customer Service immediately reflect on Florist preparation monitors and Stock Control screens.",
+      "Scalable Multi-Tenant Monorepo Configuration: Configured a PNPM monorepo workspace containing shared @monuaf/core packages (hooks, UI components, API clients) and Next.js Edge Middleware routing multiple domains (graftonflowers.com, crunchyqatar.com) to individual tenant apps.",
+      "Resilient Browser-Native PDF & Print Pipeline: Utilized WeasyPrint for dynamic compilation of custom gift message cards into PDFs and designed custom print CSS for reliable browser-native receipt and packaging label printing."
+    ],
+    "subsystems": [
+      {
+        "title": "1. High-Performance E-Commerce Backend (Django REST Framework)",
+        "description": "Functions as the secure business engine.",
+        "points": [
+          "Dual Auth & RBAC: Custom auth model supporting login via email or phone number with role-based access for Stock Control, Customer Service, Drivers, Florists, Administrators, and Customers.",
+          "Shadow Accounts: Built-in guest checkout flow with dynamic order-tracking links.",
+          "Inventory Control & Recipes: Tracks product-level raw ingredients (roses, ribbons, vases per bouquet) and dynamically reserves stock during checkout.",
+          "Dynamic PDF Cards: Uses WeasyPrint to compile custom gift cards and message previews into PDFs on the fly."
+        ]
+      },
+      {
+        "title": "2. Role-Based Admin POS & Order Preparation Dashboard (React & Vite)",
+        "description": "Real-time command center optimized for tablet and desktop viewports, streamlining store operations.",
+        "points": [
+          "Order Preparation Pipeline: Tailored role dashboards (Stock Control prints ingredients, Florists construct bouquets, Delivery Coordinators assign drivers).",
+          "Driver Portal: Dedicated hub to manage in-house and third-party delivery dispatching, tracking orders from ready_for_delivery to successfully_delivered.",
+          "Dynamic Payment Links: CS agents generate custom payment URLs directly from the POS to secure manual orders.",
+          "Batch Operations: Bulk status updates, bulk PDF printing of packaging labels, and batch ingredient checklists."
+        ]
+      },
+      {
+        "title": "3. Multi-Tenant E-Commerce Storefronts (Next.js Monorepo)",
+        "description": "Performant, modern frontend designed to yield sub-second load times and high conversion rates.",
+        "points": [
+          "Multi-Tenant Routing: Next.js Edge Middleware dynamically routes domains (graftonflowers.com vs crunchyqatar.com) to tenant apps within the PNPM workspace.",
+          "Blazing Fast UX: Built utilizing Incremental Static Regeneration (ISR) for product and category pages to render static pages from cache, revalidating in background.",
+          "Core Web Vitals Optimizations: Leverages next/image for WebP/AVIF formats, next/font for zero CLS, and lazy-loading with code-splitting."
+        ]
+      }
+    ],
+    "accomplishments": [
+      "Designed a recipe/ingredients inventory tracking system that dynamically decrements inventory items upon order creation.",
+      "Integrated Django Channels and RTK Query cache invalidation, ensuring order updates reflect instantly on Florist preparation monitors.",
+      "Configured a PNPM monorepo workspace with shared @monuaf/core packages to eliminate code duplication across brand applications.",
+      "Designed custom CSS print rules enabling clean, browser-native printing of physical receipts and packaging labels."
+    ],
+    "architectureHighlights": [
+      "Client (Next.js Storefronts / React POS Admin) → Nginx Reverse Proxy → Daphne ASGI Server → Django Core API Engine → PostgreSQL & Redis",
+      "Unified multi-tenant monorepo infrastructure powering Grafton Flowers & Crunchy Qatar from a single backend.",
+      "Sub-second page rendering with ISR and real-time WebSocket state synchronization."
+    ],
+    "metrics": "Sub-second ISR rendering & real-time role-based POS sync"
+  },
+  {
+    "id": "swimpulse",
+    "name": "SwimPulse (SwimMetrics)",
+    "tagline": "High-Precision Swimming Stopwatch, Race Predictor & Offline-First Sync Engine",
+    "description": "SwimPulse is an all-in-one performance tracking platform built for competitive aquatic sports. Combines a hardware-level monotonic timing engine, official FINA/USA Swimming multi-course conversion algorithms, predictive fatigue stamina decay modeling, an offline-first event mutator queue engine, and RevenueCat in-app subscription monetization.",
+    "category": "mobile",
+    "isFeatured": true,
+    "techStack": ["Flutter", "Dart", "Clean Architecture (BLoC)", "GetIt", "Dartz", "Isar DB", "Supabase", "WorkManager", "RevenueCat", "GoRouter"],
+    "techLayers": [
+      { "layer": "Framework & Architecture", "techs": "Flutter / Dart (SDK ^3.11), Layered Clean Architecture (presentation, domain, data)" },
+      { "layer": "State & Dependency", "techs": "Flutter BLoC (flutter_bloc v9), GetIt (get_it v9), Dartz Monads (dartz v0.10)" },
+      { "layer": "Local Persistence", "techs": "Isar DB (isar v3.1 NoSQL), Flutter Secure Storage (v11)" },
+      { "layer": "Backend & Background Sync", "techs": "Supabase (supabase_flutter v2), WorkManager (workmanager v0.10)" },
+      { "layer": "Monetization & Routing", "techs": "RevenueCat (purchases_flutter v10), GoRouter (v14), PDF & Printing" }
+    ],
+    "challenges": [
+      "Monotonic High-Precision Timing Engine: Built using low-level system monotonic clocks (Stopwatch()) to prevent frame drops or timer drift caused by Flutter UI event loop throttling. Includes 150ms hardware debouncing and LIFO stack split undo mechanisms.",
+      "Multi-Course Time Converter & Race Predictor: Calculates instant conversions between SCY (25yd), SCM (25m), and LCM (50m) with turn adjustments, block dive offsets (-0.7s), and progressive fatigue stamina decay algorithms.",
+      "Offline-First Event Mutator Queue Engine: Writes 100% of lap splits and user flows instantly to local Isar DB. Enqueues event payloads into an immutable SyncQueueEntity synced silently via WorkManager background tasks to Supabase upon network reconnection.",
+      "RevenueCat Monetization & Anti-Trial Fraud Guard: Integrated RevenueCat in-app subscriptions ($4.99 / 6-Month Plan) with local CustomerInfo entitlement caching and monotonic hardware clock validation to prevent trial date tampering."
+    ],
+    "subsystems": [
+      {
+        "title": "1. Hardware-Level Monotonic Timing Engine",
+        "description": "Sub-millisecond accuracy decoupled from UI rendering.",
+        "points": [
+          "Monotonic Accuracy: Uses low-level CPU Stopwatch() to eliminate event-loop timer drift during long timing sessions.",
+          "Hardware Debouncing: 150ms debounce handler on split actions preventing accidental double-taps.",
+          "LIFO Stack Undo: Immutable split stack allowing coaches to undo accidental split triggers without stopping the clock.",
+          "Live Modes: Standard Timer (MM:SS.ms), Live Converter Stopwatch (real-time SCY/SCM/LCM equivalents), and Predictive Stopwatch."
+        ]
+      },
+      {
+        "title": "2. Multi-Course Converter & Race Predictor",
+        "description": "Empirical course conversion factors and physiological stamina decay modeling.",
+        "points": [
+          "Multi-Course Converter: Converts times between SCY (25 Yards), SCM (25 Meters), and LCM (50 Meters) using FINA/USA Swimming standards.",
+          "Race Predictor: Calculates split breakdowns based on stroke type (Free, Back, Breast, Fly), gender, and block dive vs wall push offsets.",
+          "Progressive Fatigue Model: Algorithmic calculation simulating physiological stamina decay over long-distance events (400m, 800m, 1500m)."
+        ]
+      },
+      {
+        "title": "3. Offline-First Architecture & Silent Sync Queue Engine",
+        "description": "Zero-latency persistence designed for subterranean concrete pool venues.",
+        "points": [
+          "Zero-Latency Local Storage: All lap splits and user data write directly to thread-safe Isar DB.",
+          "Event Mutator Pattern: Action payloads append to immutable SyncQueueEntity marked pending.",
+          "Silent Reconciliation via WorkManager: Listens to connectivity streams. When offline, network calls suppress silently; upon reconnect, WorkManager triggers batch syncs to Supabase with exponential backoff."
+        ]
+      },
+      {
+        "title": "4. RevenueCat Monetization & Anti-Trial Fraud Guard",
+        "description": "Sub-system managing auto-renewable subscriptions and offline entitlement.",
+        "points": [
+          "Freemium Subscriptions: Auto-renewable subscription engine ($4.99 / 6-Month Plan with 7-Day Trial).",
+          "Offline Entitlement Caching: Caches CustomerInfo locally for offline premium feature access.",
+          "Hardware Clock Guard: Compares encrypted local launch timestamps against hardware monotonic time to block system clock manipulation."
+        ]
+      }
+    ],
+    "accomplishments": [
+      "Engineered a monotonic timing engine with software debouncing and LIFO stack split management, eliminating event-loop timer drift.",
+      "Implemented an offline-first architecture with Isar DB and an asynchronous Sync Queue Manager leveraging WorkManager and Supabase.",
+      "Developed swimming conversion and race prediction engines with progressive fatigue decay algorithms based on FINA/USA Swimming standards.",
+      "Integrated RevenueCat in-app subscriptions with offline entitlement caching and hardware clock verification to prevent trial manipulation."
+    ],
+    "architectureHighlights": [
+      "User Action → Zero-Latency Isar DB Write → Enqueue SyncQueue Payload → Silent WorkManager Background Sync to Supabase",
+      "Layered Clean Architecture strictly separated into presentation/, domain/, and data/ layers.",
+      "Sub-millisecond monotonic precision with zero accumulated timer drift."
+    ],
+    "metrics": "Monotonic sub-millisecond precision & silent background sync",
+    "appStoreUrl": "https://apps.apple.com/us/app/swimmetrics/id6761352544",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.swimmetricsapp.app&pli=1"
+  },
+  {
+    "id": "mingly",
+    "name": "Mingly",
+    "tagline": "High-Concurrency SaaS Event Booking & Venue Management",
+    "description": "High-throughput venue reservation and event ticketing platform engineered to handle massive ticket drop concurrency, distributed locks, complex event recurrence rules, and venue logistics.",
+    "category": "fullstack",
+    "isFeatured": true,
+    "techStack": ["Flutter", "Node.js", "WebSockets", "PostgreSQL", "Redis Redlock", "Docker"],
+    "challenges": [
+      "Distributed Atomic Reservation Engine: Architected a booking pipeline using Redis Redlock and atomic database transactions to temporarily lock seats with strict TTLs, eliminating double-bookings.",
+      "Recurrent Event Rule Engine: Built a backend scheduling framework supporting complex recurrence patterns, custom blackout dates, and rolling inventory releases.",
+      "Integrated Logistics & Check-In Subsystems: Unified ticketing with parking space allocation and encrypted dynamic QR code gate scanning with offline validation."
+    ],
+    "architectureHighlights": [
+      "Zero collision ticketing during high-concurrency traffic bursts.",
+      "End-to-end venue management unifying ticketing, recurring schedules, and parking allocations.",
+      "Live host analytics dashboard streaming real-time seat occupancy and revenue."
+    ],
+    "metrics": "Zero collision ticketing during flash reservation drops",
+    "appStoreUrl": "https://apps.apple.com/au/app/mingly-club-bookings/id6756230195",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=com.appx.mingly"
+  },
+  {
+    "id": "coachcal",
+    "name": "CoachCal",
+    "tagline": "AI-Powered Fitness, Nutrition & Habit Intelligence Platform",
+    "description": "Intelligent fitness and nutrition companion replacing rigid onboarding forms with a dynamic conversational AI agent and Gemini AI Vision OCR for instant receipt/label macro tracking.",
+    "category": "ai",
+    "isFeatured": true,
+    "techStack": ["Flutter", "Dart", "Gemini AI Vision OCR", "OpenAI / LLM APIs", "Cloud Functions"],
+    "challenges": [
+      "Conversational AI Onboarding Agent: Replaced 20+ step static forms with a natural chat onboarding workflow gathering metabolic rates, dietary restrictions, and training goals.",
+      "Gemini AI Vision OCR Pipeline: Integrated Google Gemini AI multimodal vision API to extract itemized grocery lists from receipts and macro tables directly from product packaging with high precision.",
+      "Adaptive Meal Generation Engine: Built a context-aware nutrition planner leveraging LLMs to generate personalized macro-compliant recipes from pantry inventory."
+    ],
+    "architectureHighlights": [
+      "Zero-friction profile setup via interactive conversational AI.",
+      "Automated Gemini AI vision receipt and label scanning directly into macro databases.",
+      "Dynamic meal adaptation adjusting in real time to skipped meals or daily workout intensity."
+    ],
+    "metrics": "Instant Gemini AI vision receipt & label macro extraction"
+  },
+  {
+    "id": "ramfollow",
+    "name": "RamFollow",
+    "tagline": "Multi-Modal Urban Mobility & Ridesharing Platform",
+    "description": "High-throughput urban mobility platform orchestrating solo ride hailing, on-demand group carpools, fixed-route shuttle networks, and scheduled airport transfers.",
+    "category": "mobile",
+    "isFeatured": true,
+    "techStack": ["Flutter", "Node.js", "Go", "WebSockets", "Redis Geospatial", "PostGIS", "Google Maps SDK"],
+    "challenges": [
+      "Geospatial Proximity & ETA Dispatch Engine: Built a high-throughput service using Redis Geospatial and PostGIS to query available fleets and match drivers in sub-second latency.",
+      "Dynamic Multi-Stop Carpool Clustering: Developed route optimization algorithms clustering passengers along shared transit corridors while strictly capping individual detour delays.",
+      "Bi-Directional Telemetry Streaming: Established persistent low-latency WebSockets for real-time driver telemetry streaming, bearing interpolation, and live arrival updates."
+    ],
+    "architectureHighlights": [
+      "Multi-tier mobility operations supporting solo, carpool, corporate shuttle, and airport rides.",
+      "Sub-second driver matching with turn-by-turn live bearing interpolation.",
+      "Automated route optimization with dynamic detour limitation and fare splitting."
+    ],
+    "metrics": "Sub-second driver matching & real-time telemetry streaming"
+  },
+  {
+    "id": "flutter-svg-pro",
+    "name": "Flutter SVG Pro (flutter_svg_pro)",
+    "tagline": "Open-Source Interactive Vector Canvas Package",
+    "description": "Open-source developer library enabling node-level hit testing, tap gesture detection, and dynamic color/border mutations on individual SVG vector paths and XML layers at 60 FPS.",
+    "category": "mobile",
+    "isFeatured": false,
+    "techStack": ["Flutter", "Dart", "XML DOM Parser", "Custom 2D Canvas Painter"],
+    "challenges": [
+      "SVG DOM Decomposition Engine: Built an XML parser converting raw SVG markup into an interactive Dart object tree preserving layer hierarchy, IDs, and path transforms.",
+      "Layer-Level Hit Testing & Dynamic Canvas Painting: Engineered a custom canvas renderer with 2D ray-point hit testing, enabling individual vector nodes to listen for pointer events and mutate styles at 60 FPS."
+    ],
+    "architectureHighlights": [
+      "Granular node interactivity with tap, hover, and selection listeners on specific SVG paths.",
+      "Runtime style mutation allowing dynamic color, opacity, and border updates on the fly.",
+      "Zero external dependencies with a lightweight, clean Dart implementation."
+    ],
+    "metrics": "Available on pub.dev/packages/flutter_svg_pro",
+    "githubUrl": "https://github.com/khsuzan/flutter_svg_pro",
+    "liveUrl": "https://pub.dev/packages/flutter_svg_pro"
+  },
+  {
+    "id": "imeasure",
+    "name": "iMeasure",
+    "tagline": "Native iOS Augmented Reality Spatial Measurement Tool",
+    "description": "Zero-latency AR spatial measurement tool leveraging Apple ARKit and SceneKit for real-time frame-by-frame hit testing, live dotted preview tracking, and 3D surface area geometry calculations.",
+    "category": "mobile",
+    "isFeatured": false,
+    "techStack": ["Flutter", "Dart", "Apple ARKit", "SceneKit 3D Nodes", "vector_math", "iOS Camera APIs"],
+    "challenges": [
+      "Continuous Frame-by-Frame Hit-Testing: Implemented real-time raycasting inside the updateAtTime render loop to project a zero-latency live preview line before confirming coordinates.",
+      "Multi-Mode 3D Scene Graph: Created 3D anchor nodes supporting Line Mode (3D Euclidean distance), Triangle Mode (3D cross-product perimeter & area), and Quadrilateral Mode (4-point polygon surface area).",
+      "Optimized Hardware Lifecycle: Built camera permission gates and node disposal routines to maintain smooth 60 FPS tracking on iOS devices."
+    ],
+    "architectureHighlights": [
+      "No-tap live surface tracking with real-time preview line as device moves across surfaces.",
+      "Multi-mode geometry calculating linear distance, perimeter, and surface area.",
+      "Dual-unit readout in metric (cm) and imperial (ft/in)."
+    ],
+    "metrics": "Real-time AR live preview tracking at 60 FPS on iOS",
+    "githubUrl": "https://github.com/khsuzan/i_measure"
+  },
+  {
+    "id": "connectify",
+    "name": "Connectify",
+    "tagline": "Cross-Platform Desktop Utility for Wireless ADB",
+    "description": "Cross-platform desktop GUI abstracting Android Debug Bridge (ADB) terminal commands into one-click wireless pairing, APK drag-and-drop sideloading, screen mirroring, and logcat filtering.",
+    "category": "fullstack",
+    "isFeatured": false,
+    "techStack": ["Flutter Desktop", "Electron", "Dart", "TypeScript", "ADB Subsystem"],
+    "challenges": [
+      "GUI-Driven ADB Abstraction Layer: Developed a desktop UI abstracting complex command-line workflows behind one-click graphical controls.",
+      "Automated Device Pairing & TCP/IP Discovery: Built automated network discovery and wireless pairing routines via IP/port and QR code pairing without opening a terminal.",
+      "Streamlined QA Tooling Suite: Integrated APK drag-and-drop installation, real-time screen mirroring, and logcat filtering with instant log export."
+    ],
+    "architectureHighlights": [
+      "Zero-terminal setup enabling non-technical stakeholders (QA, PMs) to manage devices.",
+      "Instant wireless debugging eliminating physical USB cable constraints.",
+      "Lightweight memory footprint compared to full Android Studio IDE instances."
+    ],
+    "metrics": "One-click wireless ADB pairing & zero-terminal setup",
+    "githubUrl": "https://github.com/khsuzan/connectify"
+  },
+  {
+    "id": "fardahisab",
+    "name": "Hisaboto",
+    "tagline": "Enterprise Financial Management & Field Reconciliation Suite",
+    "description": "Offline-first financial ledger suite for field collection agents, enabling encrypted local transaction recording, digital proof of collection receipts, and automated batch synchronization.",
+    "category": "mobile",
+    "isFeatured": false,
+    "techStack": ["Flutter", "Dart", "Encrypted SQLite / Hive", "REST API", "Sync Pipeline"],
+    "challenges": [
+      "Offline-First Secure Transaction Vault: Architected a local-first encrypted database allowing field agents to record collections and balance ledgers without network connection.",
+      "Conflict-Free Synchronization Pipeline: Developed a background sync engine batching offline ledgers and pushing to central servers with automated timestamp reconciliation.",
+      "Role-Based Financial Audit Trails: Built multi-tier permission controls, end-of-day cash reconciliation sheets, and automated discrepancy reporting."
+    ],
+    "architectureHighlights": [
+      "100% offline operational continuity for field agents in remote regions.",
+      "Automated batch reconciliation with zero data loss upon network recovery.",
+      "Tamper-evident digital proof of collection receipts generated on-device."
+    ],
+    "metrics": "100% offline operational continuity & zero data loss sync"
+  },
+  {
+    "id": "country-names",
+    "name": "Country Names (country_names)",
+    "tagline": "Zero-Dependency ISO-3166 Country & Dial Code Library",
+    "description": "Ultra-lightweight, tree-shakeable Dart package providing instant O(1) constant-time lookup for ISO-3166 country codes, international dial codes, and localized country names.",
+    "category": "mobile",
+    "isFeatured": false,
+    "techStack": ["Flutter", "Dart", "ISO-3166 Standard Datasets", "In-Memory Hash Indexing"],
+    "challenges": [
+      "Zero-Dependency Lookup Engine: Built a tree-shakeable package containing normalized ISO-3166 datasets (Alpha-2, Alpha-3, Numeric) and international dialing codes.",
+      "Optimized In-Memory Indexing: Structured country records with constant-time O(1) hash maps for instant dial code and country code lookup during user typing."
+    ],
+    "architectureHighlights": [
+      "Ultra-lightweight footprint with zero external dependencies and tree-shakeable assets.",
+      "Instant O(1) query performance for international dial codes during real-time typing.",
+      "Plug-and-play API designed for Flutter form validation and country pickers."
+    ],
+    "metrics": "Available on pub.dev/packages/country_names",
+    "githubUrl": "https://github.com/khsuzan/country_names",
+    "liveUrl": "https://pub.dev/packages/country_names"
+  }
+]

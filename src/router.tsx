@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router";
+import HomePage from "./screens/HomePage";
 import BreakingGoliathsPage from "./screens/breaking-goliaths/BreakingGoliathsPage";
 import CoachCalPage from "./screens/coach-cal/CoachCalPage";
 import EsortPage from "./screens/esort/EsortPage";
 import FardaPage from "./screens/farda/FardaPage";
-import HomePage from "./screens/HomePage";
 import HisabotPage from "./screens/hisabot/HisabotPage";
 import IMissUPage from "./screens/i-miss-u/IMissUPage";
 import MathaidetectivesPage from "./screens/mathaidetectives/MathaidetectivesPage";
